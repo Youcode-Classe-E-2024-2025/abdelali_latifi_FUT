@@ -23,3 +23,22 @@
     font-size: 50px;
     color:rgba(184, 134, 11, 1);
 }
+.container {
+    background-image: url('stadium_background.png');
+    background-size: cover;
+    background-position: center; 
+    padding: 20px;
+    height: auto;
+    width: 60%;
+    text-align: center;
+}
+.ligne {
+    display: flex;
+    justify-content: center;
+    gap: 50px;    
+   
+}
+.cards {
+    width: 150px; 
+    height: auto;
+}
