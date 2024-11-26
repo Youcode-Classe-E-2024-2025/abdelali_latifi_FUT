@@ -1,0 +1,25 @@
+.header{
+    display: flex;
+    justify-content: space-around ;
+    background-color: black;
+    margin-bottom: 20px;
+}
+.ballon_dor{
+    width: 100px;
+    height: 100px;
+    align-self: center;
+
+}
+.input{
+    border: 4px solid ;
+    border-color:rgba(184, 134, 11, 1);
+    height: 40px ;
+    align-self: center;
+    font-size: larger;
+    border-radius: 5px ;
+    padding-left: 10px;
+}
+.title{
+    font-size: 50px;
+    color:rgba(184, 134, 11, 1);
+}
