@@ -1,8 +1,8 @@
+
 .header{
     display: flex;
     justify-content: space-around ;
     background-color: black;
-    margin-bottom: 20px;
 }
 .ballon_dor{
     width: 100px;
@@ -24,26 +24,30 @@
     color:rgba(184, 134, 11, 1);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+.line_up{
+    text-align: center;
+    background-color:rgba(184, 134, 11, 1); 
+    margin: 5px;
+    font-size: 30p;
+}
 .container {
     background-image: url('stadium_background.png');
     background-size: cover;
     background-position: center; 
     padding: 20px;
     height: auto;
-    width: 60%;
     text-align: center;
 }
 .ligne {
     display: flex;
     justify-content: center;
     gap: 50px;    
-   
 }
 .card{
     background-image: url('Screenshot_2024-11-25_123146-removebg-preview.png');
     background-size: cover;
-    width: 150px; 
-    height: 200px;
+    width: 200px; 
+    height: 260px;
     color: aliceblue;
     justify-content: center;
     align-content: center;
@@ -55,3 +59,4 @@
     display: flex;
     justify-content: center;
 }
+
