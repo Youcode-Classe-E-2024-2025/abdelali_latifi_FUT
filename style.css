@@ -123,7 +123,29 @@ select {
     width: 70%;
     margin: auto;
 }
+.card{
+    background-image: url('Screenshot_2024-11-25_123146-removebg-preview.png');
+    background-size: cover;
+    width: 150px; 
+    height: 200px;
+    color: aliceblue;
+    align-content: center;
+    font-size: 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+.firt_part{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.second_part{
+    display: flex;
+    justify-content: center ;
+    gap: 10px;
+    font-size: 7px;
 
+}
 /* =============================================== media query ============================================== */
 @media screen and (max-width: 1080px) {
 .ballon_dor{
