@@ -1,3 +1,7 @@
+const players = document.getElementById('players');
+const addplayer = document.getElementById('addplayer');
+const pop_up = document.getElementById('pop_up')
+
 fetch('/players.json')
     .then(Response => {
         if(!Response.ok) {
@@ -8,6 +12,8 @@ fetch('/players.json')
 
   .then (data => {
     console.log(data);
+    data.forEach(player => displayplayers(player)); 
+
 })
 .catch(erreur => {
     console.error('Erreur:', erreur);
@@ -44,10 +50,14 @@ showplayers.innerHTML = `
             </div>
 
         </div>
-`
-document.getElementById('player').appendChild(showplayers) 
+    `
+       players.appendChild(showplayers);
 }
 
+addplayer.addEventListener('click', () => {
+    pop_up.classList.remove('display: block');
+    displayplayers();
+});
 
 
 

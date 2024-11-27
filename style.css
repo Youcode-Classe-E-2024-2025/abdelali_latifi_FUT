@@ -118,6 +118,7 @@ select {
     left: 0;
     background-color: rgba(0, 0, 0, 0.7);
     overflow-y: auto;
+    display: none;
 }
 .player_title{
     text-align: center;
