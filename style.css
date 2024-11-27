@@ -42,7 +42,6 @@
     background-position: center; 
     padding: 20px;
     height: auto;
-    text-align: center;
     width: 60%;
 }
 .ligne {
@@ -50,17 +49,17 @@
     justify-content: center;
     gap: 50px;    
 }
-.card{
+.emptycard{
     background-image: url('Screenshot_2024-11-25_123146-removebg-preview.png');
     background-size: cover;
     width: 150px; 
     height: 200px;
     color: aliceblue;
-    justify-content: center;
     align-content: center;
     font-size: 30px;
     font-weight: 800;
     cursor: pointer;
+    text-align: center;
 }
 .goelkeeper{
     display: flex;
@@ -111,7 +110,21 @@ select {
     background-color: #fff;
     color: #333;  
 }
+.player_title{
+    text-align: center;
+}
+.player {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(4, 1fr); 
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px; 
+    width: 70%;
+    margin: auto;
+}
 
+/* =============================================== media query ============================================== */
 @media screen and (max-width: 1080px) {
 .ballon_dor{
     width: 100px;
@@ -131,7 +144,7 @@ select {
     }
     .card {
         width: 150px;
-        height: 180px;
+        height: 190px;
     }
 
     .container1 {
@@ -155,7 +168,7 @@ select {
     }
     .card {
         width: 100px;
-        height: 150px;
+        height: 140px;
         font-size: 1rem;
     }
 
