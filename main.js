@@ -1,6 +1,7 @@
 const players = document.getElementById('players');
-const addplayer = document.getElementById('addplayer');
-const pop_up = document.getElementById('pop_up')
+const addplayer = document.querySelectorAll('.emptycard');
+const pop_up = document.getElementById('pop_up');
+const EXITE = document.getElementById('EXITE');
 
 fetch('/players.json')
     .then(Response => {
@@ -11,54 +12,96 @@ fetch('/players.json')
     } )
 
   .then (data => {
-    console.log(data);
-    data.forEach(player => displayplayers(player)); 
-
+      stars = data;
+      console.log(stars);
 })
 .catch(erreur => {
     console.error('Erreur:', erreur);
 })
 
 function displayplayers(){
-const showplayers = document.createElement('div');
-showplayers.innerHTML = `
- <div id="showplayer" class="card">
+    players.innerHTML = "";
+    stars.players.forEach( player => {
+    const showplayers = document.createElement('div');
+    
+    if (player.position !== 'GK'){
+    showplayers.innerHTML = `
+    <div id="showplayer" class="card">
+        <div class = player_name>${player.name}</div>
         <div class="firt_part">
-        <div class="informations">
-        <div>${position}</div>
-        <div>${nationality}</div>
-        <img src="${flag}" alt="">
-        <div>${club}</div>
-        <img src="${logo}" alt="">
+        <div>
+        <div>${player.position}</div><br>
+        <div>${player.nationality}</div><br>
+        <img class ='flag' src="${player.flag}" alt=""><br>
+        <div>${player.club}</div>
         </div>
         <div class="player_img">
-            <img src="${photo}" alt="">
+            <img class='playerphoto' src="${player.photo}" alt="">
         </div>
         </div>
         <div class="second_part">
             <div>
-                <div>"rating": ${rating}</div><br>
-                <div>"pace": ${pace}</div><br>
-                <div>  "shooting": ${shooting}</div><br>
+                <span>passing: ${player.passing}</span><br><br>
+                <span>pace: ${player.pace}</span><br><br>
+                <span>shooting: ${player.shooting}</span>
             </div>
             <div>
-                <div>"passing": ${passing}</div><br>
-                <div>"dribbling": ${dribbling}</div><br>
-                <div>"defending": ${defending}</div><br>
-                 <div>"physical": ${physical}</div>
+                <span>dribbling: ${player.dribbling}</span><br><br>
+                <span>defending: ${player.defending}</span><br><br>
+                <span>physical: ${player.physical}</span>
 
             </div>
 
         </div>
     `
-       players.appendChild(showplayers);
-}
+    }
+    else{
+        
+        showplayers.innerHTML = `
+ <div id="showplayer" class="card">
+        <div class = player_name>${player.name}</div>
+        <div class="firt_part">
+        <div>
+        <div>${player.position}</div><br>
+        <div>${player.nationality}</div><br>
+        <img class ='flag' src="${player.flag}" alt=""><br>
+        <div>${player.club}</div>
+        </div>
+        <div class="player_img">
+            <img class='playerphoto' src="${player.photo}" alt="">
+        </div>
+        </div>
+        <div class="second_part">
+            <div>
+                <span>diving: ${player.diving}</span><br><br>
+                <span>handling: ${player.handling}</span><br><br>
+                <span>kicking: ${player.kicking}</span>
+            </div>
+            <div>
+                <span>reflexes: ${player.reflexes}</span><br><br>
+                <span>speed: ${player.speed}</span><br><br>
+                <span>positioning: ${player.positioning}</span>
 
-addplayer.addEventListener('click', () => {
-    pop_up.classList.remove('display: block');
-    displayplayers();
+            </div>
+
+        </div>
+    `
+    }
+       players.appendChild(showplayers);
+    
 });
 
+}
+addplayer.forEach(Element => {
+    Element.addEventListener("click", ()=>{
+        pop_up.style.display ='block';
+        displayplayers() ;
+    })
+})
 
+EXITE.addEventListener('click', ()=>{
+    pop_up.style.display ='none';
+
+})
 
 

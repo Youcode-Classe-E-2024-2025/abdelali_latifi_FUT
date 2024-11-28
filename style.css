@@ -136,23 +136,48 @@ select {
 .card{
     background-image: url('Screenshot_2024-11-25_123146-removebg-preview.png');
     background-size: cover;
-    width: 200px; 
-    height: 260px;
+    width: 240px; 
+    height: 350px;
     color: aliceblue;
     align-content: center;
     cursor: pointer;
 }
+.player_name{
+    text-align: center;
+}
 .firt_part{
     display: flex;
     justify-content: center;
-    gap: 70px;
-    margin-top: 10px;
+    font-size: 13px;
+
 }
 .second_part{
     display: flex;
     justify-content: center ;
     gap: 20px;
-    font-size: 10px;
+    font-size: 13px;
+}
+.playerphoto{
+    width: 100px;
+    height: 100px;
+}
+.flag{
+    width: 20px;
+    height: 15px;
+}
+.logo{
+    width: 40px;
+    height: 40px;
+}
+.EXITE{
+    background-color:rgba(184, 134, 11, 1);
+    font-size: 20px ;
+    font-weight: 800;
+    border-radius: 5px;
+    border: none ;
+    margin-top: 2rem;
+    margin-left: 50%;
+    height: 40px;
 }
 /* =============================================== media query ============================================== */
 @media screen and (max-width: 1080px) {
