@@ -164,3 +164,22 @@ EXITE.addEventListener('click', () => {
     pop_up.style.display = 'none';
 });
 
+function removeplayer(selectedCard) {
+    if (selectedCard && selectedCard.querySelector('.player_card_selected')) {
+        const playerName = selectedCard.querySelector('.player_name_selected').innerText;
+
+        selectedPlayers = selectedPlayers.filter(player => player !== playerName);
+
+        const position = selectedCard.getAttribute('data-position');
+        selectedCard.innerHTML = `<h1>+</h1>`;
+    }
+}
+addplayer.forEach(element => {
+    element.addEventListener("click", () => {
+        addplayer.forEach(el => el.classList.remove('selected'));
+        element.classList.add('selected');
+        const position = element.getAttribute('data-position'); 
+        pop_up.style.display = 'block';
+        displayplayers(position); 
+    });
+});
