@@ -144,12 +144,13 @@ select {
 }
 .player_name{
     text-align: center;
+    margin-bottom: 10px;
 }
 .firt_part{
     display: flex;
     justify-content: center;
-    font-size: 13px;
-
+    font-size: 15px;
+    gap: 20px;
 }
 .second_part{
     display: flex;
@@ -158,8 +159,8 @@ select {
     font-size: 13px;
 }
 .playerphoto{
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
 }
 .flag{
     width: 20px;
@@ -179,6 +180,27 @@ select {
     margin-left: 50%;
     height: 40px;
 }
+.player_card_selected{
+    margin-top: 10px;
+}
+.player_name_selected{
+    font-size: 10px;
+}
+.playerphoto_selected{
+    width: 70px;
+    height: 60px;
+}
+.second_part_selected{
+    display: flex;
+    justify-content: center ;
+    gap: 10px;
+    font-size: 6px;
+}
+.player_position_selected{
+    font-size: 10px;
+    margin: 0cm;
+}
+
 /* =============================================== media query ============================================== */
 @media screen and (max-width: 1080px) {
 .ballon_dor{

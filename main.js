@@ -3,6 +3,7 @@ const addplayer = document.querySelectorAll('.emptycard');
 const pop_up = document.getElementById('pop_up');
 const EXITE = document.getElementById('EXITE');
 const getplayer = document.getElementById('showplayer');
+let stars = [];
 
 
 fetch('/players.json')
@@ -32,8 +33,7 @@ function displayplayers(){
         <div class="firt_part">
         <div>
         <div>${player.position}</div><br>
-        <div>${player.nationality}</div><br>
-        <img class ='flag' src="${player.flag}" alt=""><br>
+        <img class ='flag' src="${player.flag}" alt=""><br><br>
         <div>${player.club}</div>
         </div>
         <div class="player_img">
@@ -64,8 +64,7 @@ function displayplayers(){
         <div class="firt_part">
         <div>
         <div>${player.position}</div><br>
-        <div>${player.nationality}</div><br>
-        <img class ='flag' src="${player.flag}" alt=""><br>
+        <img class ='flag' src="${player.flag}" alt=""><br><br>
         <div>${player.club}</div>
         </div>
         <div class="player_img">
@@ -91,19 +90,19 @@ function displayplayers(){
        players.appendChild(showplayers);
     
        showplayers.addEventListener('click', ()=> {
-        console.log("getplayer");
-
-       
+        chooseplayer(player);
     })
 });
 
 }
-addplayer.forEach(Element => {
-    Element.addEventListener("click", ()=>{
-        pop_up.style.display ='block';
-        displayplayers() ;
-    })
-})
+addplayer.forEach(element => {
+    element.addEventListener("click", () => {
+        addplayer.forEach(el => el.classList.remove('selected'));
+        element.classList.add('selected');
+        pop_up.style.display = 'block';
+        displayplayers();
+    });
+});
 
 EXITE.addEventListener('click', ()=>{
     pop_up.style.display ='none';
@@ -111,10 +110,34 @@ EXITE.addEventListener('click', ()=>{
 })
 
 
-function chooseplayer(){
-    addplayer.innerHTML = getplayer ;
-    pop_up.style.display ='none';
-
+function chooseplayer(player) {
+    const selectedCard = document.querySelector('.emptycard.selected');
+    if (selectedCard) {
+        selectedCard.innerHTML = `
+            <div class="player_card_selected">
+                <div  class="player_name_selected">${player.name}</div>
+                <img class="playerphoto_selected" src="${player.photo}" alt="">
+            </div>
+              <div class="second_part_selected">
+            <div>
+                <span>passing: ${player.passing}</span><br><br>
+                <span>pace: ${player.pace}</span><br><br>
+                <span>shooting: ${player.shooting}</span>
+            </div>
+            <div>
+                <span>dribbling: ${player.dribbling}</span><br><br>
+                <span>defending: ${player.defending}</span><br><br>
+                <span>physical: ${player.physical}</span>
+            </div>
+        </div>
+         <div>
+        <img class ='flag' src="${player.flag}" alt="">
+        <span class="player_position_selected">${player.club}</span>
+        </div>
+        <div class="player_position_selected">${player.position}</div>
+        `;
+        pop_up.style.display = 'none';
+    }
 }
 
 
