@@ -176,8 +176,9 @@ select {
     font-weight: 800;
     border-radius: 5px;
     border: none ;
-    margin-top: 2rem;
-    margin-left: 50%;
+    position: absolute;
+    top: 0%;
+    right: 0%;
     height: 40px;
 }
 .player_card_selected{

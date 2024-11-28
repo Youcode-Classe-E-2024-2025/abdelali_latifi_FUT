@@ -2,124 +2,41 @@ const players = document.getElementById('players');
 const addplayer = document.querySelectorAll('.emptycard');
 const pop_up = document.getElementById('pop_up');
 const EXITE = document.getElementById('EXITE');
-const getplayer = document.getElementById('showplayer');
 let stars = [];
-let selectedPlayers = []; 
-
-
+let selectedPlayers = [];
 
 fetch('/players.json')
-    .then(Response => {
-        if(!Response.ok) {
+    .then(response => {
+        if (!response.ok) {
             throw new Error('Erreur de chargement de JSON');
-        } 
-    return Response.json();
-    } )
-
-  .then (data => {
-      stars = data;
-      console.log(stars);
-})
-.catch(erreur => {
-    console.error('Erreur:', erreur);
-})
-
-function displayplayers(){
-    players.innerHTML = "";
-    stars.players.forEach( player => {
-    const showplayers = document.createElement('div');
-    if (player.position !== 'GK'){
-    showplayers.innerHTML = `
-    <div id="showplayer" class="card">
-        <div class = player_name>${player.name}</div>
-        <div class="firt_part">
-        <div>
-        <div>${player.position}</div><br>
-        <img class ='flag' src="${player.flag}" alt=""><br><br>
-        <div>${player.club}</div>
-        </div>
-        <div class="player_img">
-            <img class='playerphoto' src="${player.photo}" alt="">
-        </div>
-        </div>
-        <div class="second_part">
-            <div>
-                <span>passing: ${player.passing}</span><br><br>
-                <span>pace: ${player.pace}</span><br><br>
-                <span>shooting: ${player.shooting}</span>
-            </div>
-            <div>
-                <span>dribbling: ${player.dribbling}</span><br><br>
-                <span>defending: ${player.defending}</span><br><br>
-                <span>physical: ${player.physical}</span>
-
-            </div>
-
-        </div>
-    `
-    }
-    else{
-        
-        showplayers.innerHTML = `
- <div id="showplayer" class="card">
-        <div class = player_name>${player.name}</div>
-        <div class="firt_part">
-        <div>
-        <div>${player.position}</div><br>
-        <img class ='flag' src="${player.flag}" alt=""><br><br>
-        <div>${player.club}</div>
-        </div>
-        <div class="player_img">
-            <img class='playerphoto' src="${player.photo}" alt="">
-        </div>
-        </div>
-        <div class="second_part">
-            <div>
-                <span>diving: ${player.diving}</span><br><br>
-                <span>handling: ${player.handling}</span><br><br>
-                <span>kicking: ${player.kicking}</span>
-            </div>
-            <div>
-                <span>reflexes: ${player.reflexes}</span><br><br>
-                <span>speed: ${player.speed}</span><br><br>
-                <span>positioning: ${player.positioning}</span>
-
-            </div>
-
-        </div>
-    `
-    }
-       players.appendChild(showplayers);
-    
-       showplayers.addEventListener('click', ()=> {
-        chooseplayer(player);
+        }
+        return response.json();
     })
-});
-
-}
-addplayer.forEach(element => {
-    element.addEventListener("click", () => {
-        addplayer.forEach(el => el.classList.remove('selected'));
-        element.classList.add('selected');
-        pop_up.style.display = 'block';
-        displayplayers();
+    .then(data => {
+        stars = data;
+        console.log(stars);
+    })
+    .catch(erreur => {
+        console.error('Erreur:', erreur);
     });
-});
 
-EXITE.addEventListener('click', ()=>{
-    pop_up.style.display ='none';
+function displayplayers(position) {
+    players.innerHTML = ""; 
 
-})
+    const filteredPlayers = stars.players.filter(player => {
+        if (selectedPlayers.includes(player.name)) return false; 
+        if (position === "CM/CDM") {
+            return player.position === "CM" || player.position === "CDM";
+        }
+        return player.position === position;
+    });
 
-function displayplayers() {
-    players.innerHTML = "";
-    stars.players.forEach(player => {
-        if (selectedPlayers.includes(player.name)) return;
-
+    filteredPlayers.forEach(player => {
         const showplayers = document.createElement('div');
+        showplayers.classList.add('card');
+
         if (player.position !== 'GK') {
             showplayers.innerHTML = `
-            <div id="showplayer" class="card">
                 <div class="player_name">${player.name}</div>
                 <div class="firt_part">
                     <div>
@@ -142,11 +59,9 @@ function displayplayers() {
                         <span>defending: ${player.defending}</span><br><br>
                         <span>physical: ${player.physical}</span>
                     </div>
-                </div>
-            </div>`;
+                </div>`;
         } else {
             showplayers.innerHTML = `
-            <div id="showplayer" class="card">
                 <div class="player_name">${player.name}</div>
                 <div class="firt_part">
                     <div>
@@ -169,9 +84,9 @@ function displayplayers() {
                         <span>speed: ${player.speed}</span><br><br>
                         <span>positioning: ${player.positioning}</span>
                     </div>
-                </div>
-            </div>`;
+                </div>`;
         }
+
         players.appendChild(showplayers);
 
         showplayers.addEventListener('click', () => {
@@ -234,3 +149,18 @@ function chooseplayer(player) {
         pop_up.style.display = 'none';
     }
 }
+
+addplayer.forEach(element => {
+    element.addEventListener("click", () => {
+        addplayer.forEach(el => el.classList.remove('selected'));
+        element.classList.add('selected');
+        const position = element.getAttribute('data-position'); 
+        pop_up.style.display = 'block';
+        displayplayers(position); 
+    });
+});
+
+EXITE.addEventListener('click', () => {
+    pop_up.style.display = 'none';
+});
+
