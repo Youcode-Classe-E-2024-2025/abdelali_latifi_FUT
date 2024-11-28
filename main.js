@@ -2,6 +2,8 @@ const players = document.getElementById('players');
 const addplayer = document.querySelectorAll('.emptycard');
 const pop_up = document.getElementById('pop_up');
 const EXITE = document.getElementById('EXITE');
+const getplayer = document.getElementById('showplayer');
+
 
 fetch('/players.json')
     .then(Response => {
@@ -23,7 +25,6 @@ function displayplayers(){
     players.innerHTML = "";
     stars.players.forEach( player => {
     const showplayers = document.createElement('div');
-    
     if (player.position !== 'GK'){
     showplayers.innerHTML = `
     <div id="showplayer" class="card">
@@ -89,6 +90,11 @@ function displayplayers(){
     }
        players.appendChild(showplayers);
     
+       showplayers.addEventListener('click', ()=> {
+        console.log("getplayer");
+
+       
+    })
 });
 
 }
@@ -103,5 +109,9 @@ EXITE.addEventListener('click', ()=>{
     pop_up.style.display ='none';
 
 })
+
+
+
+
 
 
