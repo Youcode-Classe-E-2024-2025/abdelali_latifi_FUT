@@ -111,7 +111,11 @@ EXITE.addEventListener('click', ()=>{
 })
 
 
+function chooseplayer(){
+    addplayer.innerHTML = getplayer ;
+    pop_up.style.display ='none';
 
+}
 
 
 
