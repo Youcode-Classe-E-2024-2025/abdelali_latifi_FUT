@@ -256,7 +256,8 @@ select {
 }
 .SHOW_ALL_PLAYERS{
     height: 30px ;
-    font-size: medium;
+    font-size: small;
+    font-weight: 700;
 }
 .title{
     font-size: 50px;
@@ -280,7 +281,16 @@ select {
 }
 @media screen and (max-width: 768px) {
     .title{
-        font-size: 40px;
+        font-size: 30px;
+    }
+    .ballon_dor{
+        width: 70px;
+        height: 70px;
+    }
+    .SHOW_ALL_PLAYERS{
+       
+        height: 30px ;
+        width: 100px;
     }
     .container{
         display: block;
@@ -297,6 +307,12 @@ select {
 
     .ligne {
         gap: 5px; 
+    }
+    .second_part_selected{
+        display: none;
+    }
+    .player_name_selected{
+        font-size: 8px;
     }
 }
 @media (max-width: 480px) {
