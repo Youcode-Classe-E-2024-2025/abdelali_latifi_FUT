@@ -169,10 +169,7 @@ select {
     width: 20px;
     height: 15px;
 }
-.logo{
-    width: 40px;
-    height: 40px;
-}
+
 .EXITE{
     background-color:rgba(184, 134, 11, 1);
     font-size: 20px ;
@@ -202,7 +199,6 @@ select {
 }
 .player_position_selected{
     font-size: 10px;
-    margin: 0cm;
 }
 .buttons{
  display: flex;
@@ -321,4 +317,20 @@ select {
         height: 100px;
         font-size: 1rem;
     }
+    .player_name_selected{
+        font-size: 7px;
+    }
+    .playerphoto_selected{
+        width: 40px;
+        height: 40px;
+    }
+    .flag{
+        width: 15px;
+        height: 10px;
+    }
+    .player_position_selected{
+
+        display: none;
+    }
+    
 }
