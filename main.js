@@ -150,12 +150,10 @@ function chooseplayer(player) {
                 </div>
                 <div class="player_position_selected">${player.position}</div>` ;
         }
-
         selectedPlayers.push(player.name);
         pop_up.style.display = 'none';
     }
 }
-
 addplayer.forEach(element => {
     element.addEventListener("click", () => {
         addplayer.forEach(el => el.classList.remove('selected'));
