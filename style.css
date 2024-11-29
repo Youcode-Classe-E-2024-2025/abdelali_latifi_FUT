@@ -10,14 +10,17 @@
     align-self: center;
 
 }
-.input{
-    border: 4px solid ;
-    border-color:rgba(184, 134, 11, 1);
-    height: 40px ;
+.SHOW_ALL_PLAYERS{
+    border: none ;
+    background-color: rgba(184, 134, 11, 1);
+    height: 30px ;
+    width: 200px;
     align-self: center;
-    font-size: larger;
+    font-size: medium;
+    font-weight: 700;
     border-radius: 5px ;
     padding-left: 10px;
+    cursor: pointer;
 }
 .title{
     font-size: 50px;
@@ -210,7 +213,7 @@ select {
     align-self: center;
 
 }
-.input{
+.SHOW_ALL_PLAYERS{
     height: 30px ;
     font-size: medium;
 }
@@ -237,9 +240,6 @@ select {
 @media screen and (max-width: 768px) {
     .title{
         font-size: 40px;
-    }
-    .input{
-        display: none;
     }
     .container{
         display: block;
