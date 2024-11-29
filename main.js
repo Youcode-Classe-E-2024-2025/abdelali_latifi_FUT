@@ -124,7 +124,11 @@ function chooseplayer(player) {
                 <div class="player_position_selected">${player.position}</div>`;
         } else {
             selectedCard.innerHTML = `
-                <div class="player_card_selected">
+                <div class="buttons">
+                <button class="edite" data-index="${index}">Edit</button>
+                <button class="delete_btn" data-index="${index}">Delete</button>
+            </div>
+              <div class="player_card_selected">
                     <div class="player_name_selected">${player.name}</div>
                     <img class="playerphoto_selected" src="${player.photo}" alt="">
                 </div>
@@ -144,8 +148,9 @@ function chooseplayer(player) {
                     <img class='flag' src="${player.flag}" alt="">
                     <span class="player_position_selected">${player.club}</span>
                 </div>
-                <div class="player_position_selected">${player.position}</div>`;
+                <div class="player_position_selected">${player.position}</div>` ;
         }
+
         selectedPlayers.push(player.name);
         pop_up.style.display = 'none';
     }
@@ -164,102 +169,134 @@ addplayer.forEach(element => {
 EXITE.addEventListener('click', () => {
     pop_up.style.display = 'none';
 });
-function removeplayer(selectedCard) {
-    if (selectedCard && selectedCard.querySelector('.player_card_selected')) {
-        const playerName = selectedCard.querySelector('.player_name_selected').innerText;
-
-        selectedPlayers = selectedPlayers.filter(player => player !== playerName);
-
-        const position = selectedCard.getAttribute('data-position');
-        selectedCard.innerHTML = `<h1>+</h1>`;
-        pop_up.style.display = 'none';
-
-    }
-}
-
-addplayer.forEach(element => {
-    element.addEventListener('click', () => {
-        if (element.querySelector('.player_card_selected')) {
-            removeplayer(element);
-        } else {
-            addplayer.forEach(el => el.classList.remove('selected'));
-            element.classList.add('selected');
-            const position = element.getAttribute('data-position'); 
-            pop_up.style.display = 'block';
-        }
-    });
-});
 
 function displayallplayers() {
-    players.innerHTML = ""; 
+    players.innerHTML = "";
 
-    stars.players.forEach(player => {
+    stars.players.forEach((player, index) => {
         const showallplayers = document.createElement('div');
         showallplayers.classList.add('card');
 
-        if (player.position !== 'GK') {
+        if (player.position !== 'GK'){
+        showallplayers.innerHTML = `
+            <div class="buttons">
+                <button class="edite" data-index="${index}">Edit</button>
+                <button class="delete" data-index="${index}">Delete</button>
+            </div>
+            <div class="player_name">${player.name}</div>
+            <div class="firt_part">
+                <div>
+                    <div>${player.position}</div><br>
+                    <img class='flag' src="${player.flag}" alt=""><br><br>
+                    <div>${player.club}</div>
+                </div>
+                <div class="player_img">
+                    <img class='playerphoto' src="${player.photo}" alt="">
+                </div>
+            </div>
+            <div class="second_part">
+                <div>
+                    <span>passing: ${player.passing}</span><br><br>
+                    <span>pace: ${player.pace}</span><br><br>
+                    <span>shooting: ${player.shooting}</span>
+                </div>
+                <div>
+                    <span>dribbling: ${player.dribbling}</span><br><br>
+                    <span>defending: ${player.defending}</span><br><br>
+                    <span>physical: ${player.physical}</span>
+                </div>
+            </div>
+        `;}
+        else{
             showallplayers.innerHTML = `
-                <div class="player_name">${player.name}</div>
-                <div class="firt_part">
-                    <div>
-                        <div>${player.position}</div><br>
-                        <img class='flag' src="${player.flag}" alt=""><br><br>
-                        <div>${player.club}</div>
-                    </div>
-                    <div class="player_img">
-                        <img class='playerphoto' src="${player.photo}" alt="">
-                    </div>
+            <div class="buttons">
+                <button class="edite" data-index="${index}">Edit</button>
+                <button class="delete" data-index="${index}">Delete</button>
+            </div>
+            <div class="player_name">${player.name}</div>
+            <div class="firt_part">
+                <div>
+                    <div>${player.position}</div><br>
+                    <img class='flag' src="${player.flag}" alt=""><br><br>
+                    <div>${player.club}</div>
                 </div>
-                <div class="second_part">
-                    <div>
-                        <span>passing: ${player.passing}</span><br><br>
-                        <span>pace: ${player.pace}</span><br><br>
-                        <span>shooting: ${player.shooting}</span>
-                    </div>
-                    <div>
-                        <span>dribbling: ${player.dribbling}</span><br><br>
-                        <span>defending: ${player.defending}</span><br><br>
-                        <span>physical: ${player.physical}</span>
-                    </div>
+                <div class="player_img">
+                    <img class='playerphoto' src="${player.photo}" alt="">
                 </div>
-            `;
-        } else {
-            showallplayers.innerHTML = `
-                <div class="player_name">${player.name}</div>
-                <div class="firt_part">
-                    <div>
-                        <div>${player.position}</div><br>
-                        <img class='flag' src="${player.flag}" alt=""><br><br>
-                        <div>${player.club}</div>
-                    </div>
-                    <div class="player_img">
-                        <img class='playerphoto' src="${player.photo}" alt="">
-                    </div>
+            </div>
+            <div class="second_part">
+                <div>
+                    <span>diving: ${player.diving}</span><br><br>
+                    <span>handling: ${player.handling}</span><br><br>
+                    <span>kicking: ${player.kicking}</span>
                 </div>
-                <div class="second_part">
-                    <div>
-                        <span>diving: ${player.diving}</span><br><br>
-                        <span>handling: ${player.handling}</span><br><br>
-                        <span>kicking: ${player.kicking}</span>
-                    </div>
-                    <div>
-                        <span>reflexes: ${player.reflexes}</span><br><br>
-                        <span>speed: ${player.speed}</span><br><br>
-                        <span>positioning: ${player.positioning}</span>
-                    </div>
+                <div>
+                    <span>reflexes: ${player.reflexes}</span><br><br>
+                    <span>speed: ${player.speed}</span><br><br>
+                    <span>positioning: ${player.positioning}</span>
                 </div>
-            `;
+            </div>
+        `;
         }
 
         players.appendChild(showallplayers);
 
-        showallplayers.addEventListener('click', () => {
-            chooseplayer(player);
+        const editBtn = showallplayers.querySelector('.edite');
+        editBtn.addEventListener('click', () => {
+            editPlayer(player, showallplayers);
+        });
+
+        const deleteBtn = showallplayers.querySelector('.delete');
+        deleteBtn.addEventListener('click', () => {
+            deletePlayer(index);
         });
     });
 }
 
+function editPlayer(player, cardElement) {
+    const formHtml = `
+        <div class="edit_form">
+            <label>Nom : <input type="text" value="${player.name}" id="edit_name"></label><br>
+            <label>PST : <input type="text" value="${player.position}" id="edit_position"></label><br>
+            <label>CLB : <input type="text" value="${player.club}" id="edit_club"></label><br>
+            <label>PSS : <input type="number" value="${player.passing}" id="edit_passing"></label><br>
+            <label>PAC : <input type="number" value="${player.pace}" id="edit_pace"></label><br>
+            <button id="save"> save </button>
+            <button id="cancel">cancel</button>
+        </div>
+    `;
+
+    cardElement.innerHTML = formHtml;
+
+    const saveBtn = cardElement.querySelector('#save');
+    saveBtn.addEventListener('click', () => {
+        const editedName = cardElement.querySelector('#edit_name').value;
+        const editedPosition = cardElement.querySelector('#edit_position').value;
+        const editedClub = cardElement.querySelector('#edit_club').value;
+        const editedPassing = parseInt(cardElement.querySelector('#edit_passing').value, 10);
+        const editedPace = parseInt(cardElement.querySelector('#edit_pace').value, 10);
+
+        player.name = editedName;
+        player.position = editedPosition;
+        player.club = editedClub;
+        player.passing = editedPassing;
+        player.pace = editedPace;
+
+        displayallplayers();
+    });
+
+    const cancelBtn = cardElement.querySelector('#cancel');
+    cancelBtn.addEventListener('click', () => {
+        displayallplayers();
+    });
+}
+
+function deletePlayer(index) {
+    stars.players.splice(index, 1); 
+    displayallplayers(); 
+}
+
 SHOW_ALL_PLAYERS.addEventListener('click', () => {
     displayallplayers();
-    pop_up.style.display = 'block'; 
+    pop_up.style.display = 'block';
 });
