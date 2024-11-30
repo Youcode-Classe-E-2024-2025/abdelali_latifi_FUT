@@ -23,7 +23,6 @@ fetch('/players.json')
 
 function displayplayers(position) {
     players.innerHTML = ""; 
-
     const filteredPlayers = stars.players.filter(player => {
         if (selectedPlayers.includes(player.name)) return false; 
         if (position === "CM/CDM") {
@@ -99,6 +98,13 @@ function displayplayers(position) {
 function chooseplayer(player) {
     const selectedCard = document.querySelector('.emptycard.selected');
     if (selectedCard) {
+        const previousPlayerName = selectedCard.querySelector('.player_name_selected')?.textContent;
+        if (previousPlayerName) {
+            const index = selectedPlayers.indexOf(previousPlayerName);
+            if (index !== -1) {
+                selectedPlayers.splice(index, 1); 
+            }
+        }   
         if (player.position !== 'GK') {
             selectedCard.innerHTML = `
                 <div class="player_card_selected">
@@ -124,10 +130,6 @@ function chooseplayer(player) {
                 <div class="player_position_selected">${player.position}</div>`;
         } else {
             selectedCard.innerHTML = `
-                <div class="buttons">
-                <button class="edite" data-index="${index}">Edit</button>
-                <button class="delete_btn" data-index="${index}">Delete</button>
-            </div>
               <div class="player_card_selected">
                     <div class="player_name_selected">${player.name}</div>
                     <img class="playerphoto_selected" src="${player.photo}" alt="">

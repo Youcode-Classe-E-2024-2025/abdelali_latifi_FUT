@@ -61,8 +61,10 @@
     align-content: center;
     font-size: 30px;
     font-weight: 800;
-    cursor: pointer;
     text-align: center;
+}
+.emptycard h1{
+    cursor: pointer;
 }
 .goelkeeper{
     display: flex;
