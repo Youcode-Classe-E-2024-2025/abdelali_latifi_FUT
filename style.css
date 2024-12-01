@@ -110,6 +110,15 @@ label {
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.selecters input{
+    width: 80%;
+}
+.selecters label{
+    align-self: flex-start;
+    padding-left: 2rem;
 }
 
 .pop_up{
