@@ -112,6 +112,7 @@ label {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 2rem;
 }
 .selecters input{
     width: 80%;
@@ -119,6 +120,14 @@ label {
 .selecters label{
     align-self: flex-start;
     padding-left: 2rem;
+}
+.add{
+    background-color:rgba(184, 134, 11, 1);
+    font-size: 20px ;
+    font-weight: 800;
+    border-radius: 3px;
+    border: none ;
+    margin-top: 1rem;
 }
 
 .pop_up{
