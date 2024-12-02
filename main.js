@@ -320,6 +320,10 @@ addnewplayer.addEventListener('click', () => {
         alert("Please fill in all required fields");
         return;
     }
+    if (name){
+        alert("player already excited");
+        return;
+    }
 
     const newplayer = {
         name,
