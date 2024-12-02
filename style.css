@@ -142,7 +142,6 @@ label {
 .player_title{
     text-align: center;
     color:rgba(184, 134, 11, 1);
-
 }
 .player {
     display: grid;
@@ -259,6 +258,14 @@ label {
     border: none ;
 }
 /* =============================================== media query ============================================== */
+@media (max-width: 1110px){
+    .player {
+        grid-template-columns: repeat(3, 1fr); 
+        width: 90%;
+    }
+
+}
+
 @media screen and (max-width: 1080px) {
 .ballon_dor{
     width: 100px;
@@ -289,8 +296,8 @@ label {
     .ligne {
         gap: 10px; 
     }
-
 }
+
 @media screen and (max-width: 768px) {
     .title{
         font-size: 30px;
@@ -326,6 +333,22 @@ label {
     .player_name_selected{
         font-size: 8px;
     }
+    .player {
+        grid-template-columns: repeat(2, 1fr); 
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px){
+   
+    .player {
+        grid-template-columns: repeat(1, 1fr); 
+
+    }
+    .player_title{
+        font-size: small;
+    }
+
 }
 @media (max-width: 480px) {
     .emptycard {
@@ -347,6 +370,11 @@ label {
     .player_position_selected{
 
         display: none;
+    }
+    .EXITE{
+        font-size: 15px ;
+        font-weight: 700;
+       
     }
     
 }
