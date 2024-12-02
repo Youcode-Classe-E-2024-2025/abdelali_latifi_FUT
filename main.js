@@ -320,8 +320,10 @@ addnewplayer.addEventListener('click', () => {
         alert("Please fill in all required fields");
         return;
     }
-    if (name){
-        alert("player already excited");
+    const playerexists = stars.players.some(player => player.name.toLowerCase() === name.toLowerCase());
+
+    if (playerexists) {
+        alert("A player with this name already exists.");
         return;
     }
 
