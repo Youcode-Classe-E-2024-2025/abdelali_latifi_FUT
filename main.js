@@ -98,7 +98,7 @@ function displayplayers(position) {
 function chooseplayer(player) {
     const selectedCard = document.querySelector('.emptycard.selected');
     if (selectedCard) {
-        const previousPlayerName = selectedCard.querySelector('.player_name_selected')?.textContent;
+        const previousPlayerName = selectedCard.querySelector('.player_name_selected');
         if (previousPlayerName) {
             const index = selectedPlayers.indexOf(previousPlayerName);
             if (index !== -1) {
@@ -299,4 +299,43 @@ function deletePlayer(index) {
 SHOW_ALL_PLAYERS.addEventListener('click', () => {
     displayallplayers();
     pop_up.style.display = 'block';
+});
+
+const addnewplayer = document.getElementById('addnewplayer');
+
+addnewplayer.addEventListener('click', () => {
+    const name = document.getElementById('name').value;
+    const image = document.getElementById('image').value;
+    const nationality = document.getElementById('nationality').value;
+    const club = document.getElementById('club').value;
+    const pace = document.getElementById('pace').value;
+    const shooting = document.getElementById('shooting').value;
+    const passing = document.getElementById('passing').value;
+    const dribbling = document.getElementById('dribling').value;
+    const defending = document.getElementById('definding').value;
+    const physical = document.getElementById('physical').value;
+    const position = document.getElementById('post').value;
+
+    if (!name || !image || !club) {
+        alert("Please fill in all required fields");
+        return;
+    }
+
+    const newplayer = {
+        name,
+        photo: image,
+        club,
+        pace,
+        shooting,
+        passing,
+        dribbling,
+        defending,
+        physical,
+        position,
+        flag: nationality,
+    };
+
+    stars.players.push(newplayer);
+    displayallplayers(); 
+    alert("Player added successfully!");
 });

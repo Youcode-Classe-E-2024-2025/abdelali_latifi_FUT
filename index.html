@@ -42,16 +42,17 @@
     <h1 class="line_up">ADD YOUR FAVORITE PLAYER</h1>
     </div>
     <div class="selecters"> 
-        <label>NAME :     </label><input type="text" maxlength="14"><br>
-        <label>image :    </label><input type="url"><br>
-        <label>CLUB :     </label><input type="text" maxlength="4"><br>
-        <label>PACE :     </label><input type="number" value="80" max="99" min="10"><br>
-        <label>SHOOTING : </label><input type="number" value="80" max="99" min="10"><br>
-        <label>PASSING :  </label><input type="number" value="80" max="99" min="10"><br>
-        <label>DRIBLING : </label><input type="number" value="80" max="99" min="10"><br>
-        <label>DEFENDING :</label><input type="number" value="80" max="99" min="10"><br>
-        <label>PHYSICAL : </label><input type="number" value="80" max="99" min="10"><br>
-        <label>POST : <select class="select">
+        <label>NAME :     </label><input id="name" type="text" maxlength="14"><br>
+        <label>IMAGE :    </label><input id="image" type="url"><br>
+        <label>NATIONALITY :    </label><input id="nationality" type="url"><br>
+        <label>CLUB :     </label><input id="club" type="text" maxlength="4"><br>
+        <label>PACE :     </label><input id="pace" type="number" value="80" max="99" min="10"><br>
+        <label>SHOOTING : </label><input id="shooting" type="number" value="80" max="99" min="10"><br>
+        <label>PASSING :  </label><input id="passing" type="number" value="80" max="99" min="10"><br>
+        <label>DRIBLING : </label><input id="dribling" type="number" value="80" max="99" min="10"><br>
+        <label>DEFENDING :</label><input id="definding" type="number" value="80" max="99" min="10"><br>
+        <label>PHYSICAL : </label><input id="physical" type="number" value="80" max="99" min="10"><br>
+        <label>POST : <select id="post" class="select">
                 <option>ST</option>
                 <option>RW</option>
                 <option>LW</option>
@@ -62,7 +63,7 @@
                 <option>CB</option>
             </select></label>
     </div>
-    <button type="submit" class="add">add</button>
+    <button type="submit" class="add" id="addnewplayer">add</button>
 
 </section>
     <!-----------------------------------pop up--------------------------->
