@@ -303,7 +303,8 @@ SHOW_ALL_PLAYERS.addEventListener('click', () => {
 
 const addnewplayer = document.getElementById('addnewplayer');
 
-addnewplayer.addEventListener('click', () => {
+addnewplayer.addEventListener('click', (event) => {
+    event.preventDefault();
     const name = document.getElementById('name').value;
     const image = document.getElementById('image').value;
     const nationality = document.getElementById('nationality').value;
@@ -344,4 +345,7 @@ addnewplayer.addEventListener('click', () => {
     stars.players.push(newplayer);
     displayallplayers(); 
     alert("Player added successfully!");
+    document.getElementById('form').reset();    
 });
+
+
