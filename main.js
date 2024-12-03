@@ -256,9 +256,9 @@ function displayallplayers() {
 function editPlayer(player, cardElement) {
     const formHtml = `
         <div class="edit_form">
-            <label>Nom : <input type="text" value="${player.name}" id="edit_name"></label><br>
-            <label>PST : <input type="text" value="${player.position}" id="edit_position"></label><br>
-            <label>CLB : <input type="text" value="${player.club}" id="edit_club"></label><br>
+            <label>Nom : <input type="text" value="${player.name}" id="edit_name" maxlength="15"></label><br>
+            <label>PST : <input type="text" value="${player.position}" id="edit_position" maxlength="3"></label><br>
+            <label>CLB : <input type="text" value="${player.club}" id="edit_club" maxlength="4"></label><br>
             <label>PSS : <input type="number" value="${player.passing}" id="edit_passing"></label><br>
             <label>PAC : <input type="number" value="${player.pace}" id="edit_pace"></label><br>
             <button id="save"> save </button>
