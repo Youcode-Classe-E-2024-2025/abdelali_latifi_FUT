@@ -22,6 +22,13 @@
     padding-left: 10px;
     cursor: pointer;
 }
+.SHOW_ALL_PLAYERS:hover{
+    background-color: black;
+    border: #f9f9f9 solid;
+    color: rgba(184, 134, 11, 1) ;
+    transform: scale(1.2);
+
+}
 .title{
     font-size: 50px;
     color:rgba(184, 134, 11, 1);
@@ -65,6 +72,11 @@
 }
 .emptycard h1{
     cursor: pointer;
+}
+.emptycard h1:hover{
+    transform: scale(1.5);
+    color:rgba(184, 134, 11, 1);
+
 }
 .goelkeeper{
     display: flex;
@@ -128,6 +140,12 @@ label {
     border: none ;
     margin-top: 1rem;
 }
+.add:hover{
+    background-color: black;
+    border: #f9f9f9 solid;
+    color: rgba(184, 134, 11, 1);
+    transform: scale(1.2);
+}
 
 .pop_up{
     position: fixed;
@@ -151,9 +169,7 @@ label {
     width: 70%;
     margin: auto;
 }
-.player :hover{
-    transform: scale(1.05);
-}
+
 .card{
     background-image: url('Screenshot_2024-11-25_123146-removebg-preview.png');
     background-size: cover;
