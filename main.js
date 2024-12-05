@@ -98,12 +98,12 @@ function displayplayers(position) {
 function chooseplayer(player) {
     const selectedCard = document.querySelector('.emptycard.selected');
     if (selectedCard) {
-        const previousPlayerName = selectedCard.querySelector('.player_name_selected');
-        if (previousPlayerName) {
-            const index = selectedPlayers.indexOf(previousPlayerName);
+        const previeusplayer = document.querySelector('.player_name_selected');
+        if (previeusplayer) {
+            const index = selectedPlayers.indexOf(previeusplayer);
             if (index !== -1) {
                 selectedPlayers.splice(index, 1); 
-            }
+            }   
         }   
         if (player.position !== 'GK') {
             selectedCard.innerHTML = `
@@ -253,7 +253,7 @@ function displayallplayers() {
     });
 }
 
-function editPlayer(player, cardElement) {
+function editPlayer(player, cardelement) {
     const formHtml = `
         <div class="edit_form">
             <label>Nom : <input type="text" value="${player.name}" id="edit_name" maxlength="15"></label><br>
@@ -266,15 +266,15 @@ function editPlayer(player, cardElement) {
         </div>
     `;
 
-    cardElement.innerHTML = formHtml;
+    cardelement.innerHTML = formHtml;
 
-    const saveBtn = cardElement.querySelector('#save');
+    const saveBtn = cardelement.querySelector('#save');
     saveBtn.addEventListener('click', () => {
-        const editedName = cardElement.querySelector('#edit_name').value;
-        const editedPosition = cardElement.querySelector('#edit_position').value;
-        const editedClub = cardElement.querySelector('#edit_club').value;
-        const editedPassing = parseInt(cardElement.querySelector('#edit_passing').value, 10);
-        const editedPace = parseInt(cardElement.querySelector('#edit_pace').value, 10);
+        const editedName = cardelement.querySelector('#edit_name').value;
+        const editedPosition = cardelement.querySelector('#edit_position').value;
+        const editedClub = cardelement.querySelector('#edit_club').value;
+        const editedPassing = cardelement.querySelector('#edit_passing').value ;
+        const editedPace = cardelement.querySelector('#edit_pace').value ;
 
         player.name = editedName;
         player.position = editedPosition;
@@ -285,7 +285,7 @@ function editPlayer(player, cardElement) {
         displayallplayers();
     });
 
-    const cancelBtn = cardElement.querySelector('#cancel');
+    const cancelBtn = cardelement.querySelector('#cancel');
     cancelBtn.addEventListener('click', () => {
         displayallplayers();
     });
@@ -318,13 +318,13 @@ addnewplayer.addEventListener('click', (event) => {
     const position = document.getElementById('post').value;
 
     if (!name || !image || !club) {
-        alert("Please fill in all required fields");
+        alert("you need to entrer all informations");
         return;
     }
     const playerexists = stars.players.some(player => player.name.toLowerCase() === name.toLowerCase());
 
     if (playerexists) {
-        alert("A player with this name already exists.");
+        alert("player with this name already exists");
         return;
     }
 
@@ -344,7 +344,7 @@ addnewplayer.addEventListener('click', (event) => {
 
     stars.players.push(newplayer);
     displayallplayers(); 
-    alert("Player added successfully!");
+    alert("Player added successfully");
     document.getElementById('form').reset();    
 });
 
